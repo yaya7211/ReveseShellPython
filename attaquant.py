@@ -7,10 +7,9 @@ client, infos = s.accept()
 
 while True:
 	try:
-		cd = client.recv(10000000)
-		send = input(cd.decode()+"> ")
-		client.send(send.encode())
-		recu = client.recv(10000000)
+		send = input("> ").encode()
+		client.send(send)
+		recu = client.recv(1024)
 		print(recu.decode())
 	except KeyboardInterrupt:
 		exit()
